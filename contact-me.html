@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Motaz Alsheyab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <main class="contact-form-container">
+        <h1>Get In Touch</h1>
+        
+        <form id="contactForm"> 
+            
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="comments">Your Comments:</label>
+                <textarea id="comments" name="comments" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" onclick="validateForm(event)">Submit</button>
+            
+        </form>
+    </main>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); 
+            
+            let fullName = document.getElementById('fullName').value.trim();
+            let email = document.getElementById('email').value.trim();
+            let country = document.getElementById('country').value.trim();
+            let comments = document.getElementById('comments').value.trim();
+
+            // Check if ANY field is empty
+            if (fullName === "" || email === "" || country === "" || comments === "") {
+                alert("Please fill in ALL required fields before submission.");
+                return false; 
+            } else {
+                alert("Form submitted successfully! Thank you for your interest.");
+                // document.getElementById('contactForm').reset(); // Optional: to clear the form
+                return true;
+            }
+        }
+    </script>
+
+</body>
+</html>
